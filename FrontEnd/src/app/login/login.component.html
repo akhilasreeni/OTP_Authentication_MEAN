@@ -1,0 +1,14 @@
+<div class="login-page">
+  <div class="form">
+    <div class="login">
+      <div class="login-header">
+        <h3>Welcome</h3>
+      </div>
+    </div>
+    <form class="login-form" #form="ngForm" (ngSubmit)="onlogin()">
+      <label >Email</label>
+      <input type="email" placeholder="Email" name="email" #email="ngModel" [(ngModel)]="userData.email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+      <button type="submit">Send OTP</button>
+    </form>
+  </div>
+</div> 
