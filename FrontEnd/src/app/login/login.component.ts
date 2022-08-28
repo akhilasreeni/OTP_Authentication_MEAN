@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { 
   }
   onSend(){
-    this.sendemail.newUserAdd(this.newUser);
+    console.log("Login TS file");
+    console.log(this.newUser.email);
+    this.sendemail.newUserAdd(this.newUser.email);
     localStorage.setItem("email",this.newUser.email)
     this.router.navigate(['/verifyotp']);    
   }

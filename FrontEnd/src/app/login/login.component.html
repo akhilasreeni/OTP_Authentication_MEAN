@@ -7,7 +7,7 @@
     </div>
     <form class="login-form" (ngSubmit)="onSend()">
       <label >Email</label>
-      <input type="email" placeholder="Email" name="email" [(ngModel)]="newUser.email" />
+      <input type="email" placeholder="Email" name="email" #email="ngModel" [(ngModel)]="newUser.email" />
       <button type="submit" >Send OTP</button>
     </form>
   </div>

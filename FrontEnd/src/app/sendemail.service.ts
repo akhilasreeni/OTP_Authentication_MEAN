@@ -7,11 +7,13 @@ import {HttpClient} from '@angular/common/http';
 })
 export class SendemailService {
 
-  constructor(public http:HttpClient) { }
-  newUserAdd(newUser: any) {
-    return this.http.post('http://localhost:3000/login',newUser);
+  constructor(private http:HttpClient) { }
+  newUserAdd(email: any) {
+    console.log("Service file");
+    return this.http.post('http://localhost:3000/login',email);
   }
   verifyotp(uotp: number){
-    return this.http.post('http://localhost:3000/verifyotp',{uotp});
+    console.log("Service file");
+    return this.http.post('http://localhost:3000/verifyotp',uotp);
   }
 }
