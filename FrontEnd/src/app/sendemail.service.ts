@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 export class SendemailService {
 
   constructor(public http:HttpClient) { }
-  loginUser(userData: any) {
-    return this.http.post<any>('http://localhost:3000/login',{userData});
+  newUserAdd(newUser: any) {
+    return this.http.post<any>('http://localhost:3000/login',{newUser});
   }
 }

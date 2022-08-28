@@ -2,10 +2,13 @@
     <div class="form">
       <div class="login">
         <div class="login-header">
-          <h3>Enter the OTP</h3>
+          <h3>Please Verify....</h3>
         </div>
       </div>
-      <form class="login-form" #form="ngForm" >
+      <form class="login-form" #form="ngForm" (ngSubmit)="verifyUser()" >
+        <label>Email</label>
+        <input type="email"/>
+        <label>Enter OTP</label>
         <input type="password" name="otp"  />
         <button type="submit" routerLink="welcome">Verify</button>
       </form>

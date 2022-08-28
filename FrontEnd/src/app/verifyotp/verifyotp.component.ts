@@ -11,5 +11,5 @@ export class VerifyotpComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  verifyUser(){}
 }
