@@ -4,22 +4,57 @@ const cors = require('cors');
 const bodyparser = require('body-parser');
 const userModel = require("./src/model/UserModel")
 const PORT = process.env.PORT || 8080;
-
 const app = new express();
+const nodemailer = require('nodemailer');
+const otpGenerator = require('otp-generator');
 //app.use(express.static('./dist/frontend'));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cors());
 app.use(bodyparser.json());
 
+// const { MAIL_SETTINGS } = require('../constants/constants');
+// const transporter = nodemailer.createTransport(MAIL_SETTINGS);
+
+// module.exports.sendMail = async (params) => {
+//   try {
+//     let info = await transporter.sendMail({
+//       from: MAIL_SETTINGS.auth.user,
+//       to: params.to, // list of receivers
+//       subject: 'Hello ✔', // Subject line
+//       html: `
+//       <div
+//         class="container"
+//         style="max-width: 90%; margin: auto; padding-top: 20px"
+//       >
+//         <h2>Welcome to the club.</h2>
+//         <h4>You are officially In ✔</h4>
+//         <p style="margin-bottom: 30px;">Pleas enter the sign up OTP to get started</p>
+//         <h1 style="font-size: 40px; letter-spacing: 2px; text-align:center;">${params.OTP}</h1>
+//         <p style="margin-top:50px;">If you do not request for verification please do not respond to the mail. You can in turn un subscribe to the mailing list and we will never bother you again.</p>
+//       </div>
+//     `,
+//     });
+//     return info;
+//   } catch (error) {
+//     console.log(error);
+//     return false;
+//   }
+// };
+
 app.post('/login', async (req,res)=> {
     console.log('reached');
+    module.exports.generateOTP = () => {
+        const OTP = otpGenerator.generate(6);
+        return OTP;
+      };
     const userdata = new userModel({
-            email : req.body.email
+            email : req.body.email,
+            otp : this.generateOTP()
     })
     const user= await userdata.save();
     res.status(201);
-    console.log('registration successfull')
+    console.log('user added')
 })
 
 app.listen(PORT,()=>{

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { VerifyotpComponent } from './verifyotp/verifyotp.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { VerifyotpComponent } from './verifyotp/verifyotp.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

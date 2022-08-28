@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   }
   onlogin() {
     this.sendemail.loginUser(this.userData);
-    this.router.navigate(['verifyOTP']);
+    this.router.navigate(['verifyotp']);
   }
 
 }
