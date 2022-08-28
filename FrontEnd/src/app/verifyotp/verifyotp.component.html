@@ -6,11 +6,9 @@
         </div>
       </div>
       <form class="login-form" #form="ngForm" (ngSubmit)="verifyUser()" >
-        <label>Email</label>
-        <input type="email"/>
         <label>Enter OTP</label>
-        <input type="password" name="otp"  />
-        <button type="submit" routerLink="welcome">Verify</button>
+        <input type="password" name="otp" name="otp" [(ngModel)]="user.otp" />
+        <button type="submit" >Verify</button>
       </form>
     </div>
   </div> 
