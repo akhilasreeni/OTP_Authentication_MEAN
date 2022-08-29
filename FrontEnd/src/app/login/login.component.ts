@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     console.log(this.newUser.email);
     this.sendemail.newUserAdd(this.newUser.email);
     localStorage.setItem("email",this.newUser.email)
+    alert("OTP has been shared successfully");
     this.router.navigate(['/verifyotp']);    
   }
 

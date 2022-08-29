@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');  
-mongoose.connect(process.env.MONGODB_URI, (err) => {
+mongoose.connect("mongodb+srv://Butterfly89:Q1e1K1s1n877GWOq@cluster0.h2snxtl.mongodb.net/?retryWrites=true&w=majority", (err) => {
 
     if (!err){
         console.log("connected to DB");

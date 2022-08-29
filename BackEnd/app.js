@@ -1,4 +1,3 @@
-require('./config/config');
 const express= require('express');
 const cors = require('cors');
 const userlist = require("./src/model/UserModel")
@@ -54,7 +53,7 @@ app.post('/login', (req,res)=> {
 
 })
 
-app.post('/verifyotp',(req,res)=>{
+app.get('/verifyotp',(req,res)=>{
     var data = {
       email:req.body.email,
       otp:req.body.otp
