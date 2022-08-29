@@ -1,6 +1,6 @@
 const express= require('express');
 const cors = require('cors');
-const userlist = require("./src/model/UserModel")
+const users = require("./src/model/UserModel")
 const PORT = process.env.PORT || 8080;
 const app = new express();
 const nodemailer = require('nodemailer');
@@ -17,12 +17,11 @@ app.post('/login', (req,res)=> {
   res.header("Access-Control-Allow-Origin","*");
   res.header("Access-Control-Allow-Method:GET,POST,PUT,DELETE")
     console.log('reached');
-    const userdata = new userlist({
+    const userdata = new users({
             email : req.body.email,
             otp : this.generateOTP()
     })
     const user= new userdata.save();
-    res.status(201);
     console.log('user added')
     var mailTransporter = nodemailer.createTransport({
         service: 'gmail',
@@ -53,7 +52,7 @@ app.post('/login', (req,res)=> {
 
 })
 
-app.get('/verifyotp',(req,res)=>{
+app.post('/verifyotp',(req,res)=>{
     var data = {
       email:req.body.email,
       otp:req.body.otp

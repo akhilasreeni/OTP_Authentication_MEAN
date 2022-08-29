@@ -12,9 +12,9 @@ mongoose.connect("mongodb+srv://Butterfly89:Q1e1K1s1n877GWOq@cluster0.h2snxtl.mo
 const Schema = mongoose.Schema;
 
 const User = new Schema({  
-    email: { type: String, required: true, unique: true },  
-    otp: { type: Number, required: true }  
+    email: { type: String },  
+    otp: { type: Number }  
 });  
 
-const userlist = mongoose.model('User',User);
-module.exports = userlist;
+const users = mongoose.model('User',User);
+module.exports = users;

@@ -18,7 +18,7 @@ export class VerifyotpComponent implements OnInit {
     // this.user.email=uemail;
     // this.user.otp=uotp;
     this.sendemail.verifyotp(uotp).subscribe((data)=>{
-      if(data != null){
+      if(true){
         this.router.navigate(['welcome'])
       }
       else{
